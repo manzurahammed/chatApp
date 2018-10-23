@@ -1,0 +1,75 @@
+.login-from{
+    padding: 20px 40px;
+    width: 500px;
+    margin: auto;
+}
+.chat-box {
+    margin-top: 20px;
+}
+body {
+    background: darkgray;
+}
+.left-chat-box {
+    background: #fff;
+    height: 350px;
+}
+.chat-message {
+    height: 300px;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    padding: 30px 40px 20px 40px;
+}
+.chat-input-box {
+    text-align: center;
+}
+
+.chat-input-box input[type="text"]{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 8px;
+    outline: none;
+    width: 234px;
+}
+.chat-input-box button{
+    border: none;
+    background: #9f9fe0;
+    color: #fff;
+    border-radius: 6%;
+    height: 40px;
+}
+
+/* Darker chat container */
+.darker {
+    border-color: #ccc !important;
+    background-color: #ddd !important;
+}
+
+/* Clear floats */
+.chat-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.chat-container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
+}
+.own {
+    color: #fff;
+    background-color: black;
+}
