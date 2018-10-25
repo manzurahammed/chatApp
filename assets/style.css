@@ -40,8 +40,9 @@ body {
 
 /* Darker chat container */
 .darker {
-    border-color: #ccc !important;
+    border-color: #ccc !important; 
     background-color: #ddd !important;
+	color:#000 !important;
 }
 
 /* Clear floats */
@@ -52,10 +53,11 @@ body {
 }
 .chat-container {
     border: 2px solid #dedede;
-    background-color: #f1f1f1;
+    background-color: #0275d8; 
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
+	color:#fff;
 }
 
 /* Style time text */

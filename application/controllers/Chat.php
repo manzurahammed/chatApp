@@ -44,19 +44,19 @@ class Chat extends CI_Controller {
         exit;
     }
 
-    public function  send_chat(){
-        $response = '';
+    public function send_chat(){
+        $response = array('statuse'=>false);
         $ses_data = $this->session->userdata('user_info');
         $friend_id = $this->input->post('friend_id');
         $message = $this->input->post('message');
+        $own_id = $this->input->post('own_id');
         if($message!=''){
-            $query = $this->db->query("insert into chat (from_id,to_id,message) VALUES ('$ses_data->id','$friend_id','$message')");
-            $response .= '<div class="chat-container darker">';
-                $response .= "<p>$message</p>";
-                $response .= '<span class="time-right">11:00</span>';
-            $response .= '</div>';
+            $query = $this->db->query("insert into chat (from_id,to_id,message) VALUES ('$own_id','$friend_id','$message')");
+            if($query){
+				$response = array('statuse'=>true);
+			}
         }
-        echo $response;
+        echo json_encode($response);
         exit;
     }
 }

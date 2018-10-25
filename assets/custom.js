@@ -14,23 +14,20 @@ $(function(){
             });
         }
     });
-	var socket = io('http://localhost:3000');
+	var socket = io('http://localhost:5000');
     $('#send_chat').click(function(e){
         e.preventDefault();
         let friend_id = $('.friends.active').data('friend_id');
         let message = $("#message").val();
-		socket.emit('chat message', {friend_id:friend_id,message:message,own_id:own_id});
-        $("#message").val('');
-        if(message!=''){
-            $.ajax({
-                method: "POST",
-                url: base_url+"chat/send_chat",
-                data: { friend_id: friend_id, message: message }
-            })
-            .done(function( response ) {
-                $('.chat-message').append(response);
-            });
-        }
+		if(message!=''){
+			socket.emit('chat message', {friend_id:friend_id,message:message,own_id:own_id});
+			var markup = '<div class="chat-container darker">';
+					markup += '<p>'+message+'</p>';
+				markup += '<span class="time-right">11:00</span>';
+				markup += '</div>';
+			$('.chat-message').append(markup);
+			$("#message").val('');
+		}
     });
 	socket.on('chat message', function(msg){
 		let friend_id =$('.friends.active').data('friend_id');
